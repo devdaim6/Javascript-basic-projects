@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+    <link rel="icon" href="favicon.png" type="icon">
+    <title>addExpenses</title>
+    <!-- CSS file -->
+<link rel="stylesheet" href="style.css">    
+
+</head>
+<body>
+
+
+    <!-- <input type="text" placeholder="Product"id="inputDes"> -->
+    <div class="item-align">
+        <!-- <label for="">Product Name :</label> -->
+        <input placeholder="Product Name" type="text" id="input1" autocomplete="off">
+        <!-- <label for="">Amount :</label> -->
+        <input placeholder="Amount" type="text" id="input" autocomplete="off">
+        <button id="add">+</button>
+        <button onCLick="printPageArea()" id="print">print</button>
+        
+    </div>
+    <div id="page">
+    <!-- Heading input value -->
+    <h3 id="h3">Product name<span id="push-right">Amount</span></h3>
+    
+    <!-- Reciept Division -->
+    <div class="item-align" >
+        <!-- list for Product name -->
+        <span id="in1"> 
+            <ol id="oList">
+                 <li></li>
+                 <li></li>
+                 <li></li>
+                 <li></li>
+                 <li></li>
+                 <li></li>
+                 <li></li>
+                 <li></li>
+                 <li></li>
+                 <li></li>
+                 <li></li>
+                 <li></li>
+                 <li></li>
+                 <li></li>
+                 <li></li>
+            </ol>
+        </span>
+    <!-- list for Amount -->
+        <span id="in2"> 
+            <ul id="uList">
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+            </ul>
+        </span>
+    
+    </div>
+
+    <!-- Total Amount -->
+    <h1 id="totalamount">Total Amount <em>(₹)</em><br><p id="total"></p></h1>
+</div>
+    <!-- Button if somehow we got stuck -->
+    
+       <a href="index.html"><button  class="bn30" >Error?</button></a>
+    
+
+
+    </body>
+<footer id="footer">
+  
+                
+              &copy;Copyright 2022 | <a id="cpy" href="http://devdaim.me">DevDaim</a>
+</footer>
+<script src="main.js"></script>
+   
+   
+</html>

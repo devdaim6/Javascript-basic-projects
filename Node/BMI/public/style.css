@@ -1,0 +1,90 @@
+html{
+    background:#e04b4b;
+}
+#main_container {
+    width: 400px;
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    font-family: sans-serif;
+    border-radius: 20px;
+    border: 3px solid #999;
+}
+
+#weight_input,#height_input, #bmi_container {
+    text-align: center;
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#bmi_container {
+    margin: 40px 5px;
+    padding: 20px;
+    border-radius: 50px;
+    border: 1px solid #000;
+    font-weight: bolder;
+    background: #EEE;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+#calculate {
+    cursor: pointer;
+    text-align: center;
+    width: 200px;
+    padding: 5px;
+    margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #999;
+    border-radius: 10px;
+    background: #FFD119;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FFD119), to(red));
+	background: -moz-linear-gradient(top, #E6B800, #ac2121);
+    font-weight: bold;
+    height: 28px;
+    box-shadow: 0 -8px inset;
+}
+
+#calculate:hover {
+    background: -webkit-gradient(linear, left top, left bottom, from(red), to(#FFD119));
+	background: -moz-linear-gradient(top, #E6B800, #ac2121);
+    margin-top: 13px;
+    height: 25px;
+    box-shadow: 0 -5px inset;
+}
+
+#calculate:active {
+    background: #403300;
+    padding-top: 10px;
+    height: 20px;
+    box-shadow: 0 3px #000 inset;
+}
+
+#age {
+    padding: 5px;
+    border: 2px dashed #AAA;
+    background-color: green;
+}
+
+#footer{
+    text-align: center;
+    
+    color:#fff;
+    top:30px;
+    position:relative ;
+}
+#cpy{
+    text-decoration: none;
+    color:white;
+ }
+
+#cpy:hover {
+  color:#52f0f8;
+}
+
+th,td{
+    border:1px solid #000;
+}

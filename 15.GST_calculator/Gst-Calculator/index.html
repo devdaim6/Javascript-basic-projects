@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="author" content="DevDaim">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GST Calculator</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+
+<div class="headercontainer">
+  <h2>GST Calculator</h2>
+</div>
+  <div class="calculatecontainer">
+  	
+  <div class="form-group">
+    <label for="AMOUNT">Amount</label>
+    <input type="number" class="form-control" id="amount" placeholder="ENTER THE AMOUNT" onchange="gstcalculator()" >
+  </div>
+  <div class="form-group">
+    <label for="option">Select</label>
+    <select class="form-control" id="option" onchange="gstcalculator()">
+      <option>GST INCLUSIVE</option>
+      <option>GST EXCLUSIVE</option>
+      
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="rate">Select Rate of GST(%)</label>
+    <select class="form-control" type="number" id="rate" onchange="gstcalculator()" >
+      <option>5</option>
+      <option>12</option>
+      <option>18</option>
+      <option>28</option>
+      
+    </select>
+  </div>
+  </div>
+  <div class="output">
+  <button type="button" class="new" onclick="gstcalculator()">CALCULATE</button>
+  </div>
+  <div class="value">
+  <h2 id="totalgst"></h2><br></br>
+  <h2 id="netprice"></h2>
+</div>
+
+<br><br>
+
+<h4><strong>What is GST?</strong></h4>
+<p>GST stands for Goods and Services Tax, it is a comprehensive indirect tax levied on the supply of goods and services in India. It subsumes various indirect taxes such as VAT, Excise, and Service Tax and replaces them with a single tax. The GST is governed by the GST Council and is levied at multiple rates ranging from 0% to 28% based on the nature of goods and services.</p>
+<p>GST is a single indirect tax in India on goods & services, replacing previous taxes. The tax rate varies 0-28% and is controlled by the GST Council.</p>
+
+<h4><strong>GST Calculation Formula</strong></h4>
+<p><strong>In order to add GST to base amount</strong></p>
+<p><br>
+GST Amount = ( Original Cost * GST% ) / 100<br />
+Net Price = Original Cost + GST Amount</p>
+<p><strong>In order to remove GST from base amount</strong></p>
+<p><br>
+GST Amount = Original Cost &#8211; (Original Cost * (100 / (100 + GST% ) ) )<br />
+Net Price = Original Cost &#8211; GST Amount</p>
+
+<h4><strong>What is Inclusive GST?</strong></h4>
+<p>Inclusive GST refers to a price that already includes the GST amount, so the buyer sees the final price including the tax.</p>
+
+<h4><strong>What is Exclusive GST?</strong></h4>
+<p>Exclusive GST refers to a price that does not include the GST amount, so the buyer needs to pay the tax separately on top of the listed price.</p>
+
+
+<script src="main.js"></script>
+</body>
+<footer>
+  &copy;Copyright |<a href="https://devdaim.tech"> DevDaim</a></footer>
+</html>

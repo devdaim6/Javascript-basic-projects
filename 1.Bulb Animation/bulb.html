@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bulb Animation</title>
+</head>
+
+<body>
+    
+    <button onClick="bulbOn()">Switch On Bulb</button>
+    <img id="bulb"src="pic_bulboff.gif" alt="Bulb">
+   <button onClick="exception()">Switch Off Bulb</button>
+   <script>
+       function bulbOn(){
+
+        document.getElementById('bulb').src='pic_bulbon.gif'
+       }
+    function exception(){
+        if(src='pic_bulboff.gif'){
+        alert("Bulb is already off")
+    }
+        else{
+        document.getElementById('bulb').src='pic_bulboff.gif'
+    }
+}
+   </script> 
+   
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "name": "bmi-calculator",
+  "version": "1.0.0",
+  "main": "bmi.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devdaim6/BMI-calculator.git"
+  },
+  "author": "DevDaim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devdaim6/BMI-calculator/issues"
+  },
+  "homepage": "https://github.com/devdaim6/BMI-calculator#readme",
+  "description": ""
+}

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Quiz.js</title>
+    <style>
+        body {
+            margin: 1rem auto;
+            padding: 3rem;
+            font-family: sans-serif;
+            background:orange;
+        }
+        header {
+            width: 50%;
+            margin: 1em auto;
+        }
+        main {
+            min-width: 25rem;
+            max-width: 50%;
+            margin: 0px auto;
+            display:flex; 
+            flex-direction: column;
+        }
+        #statement {
+            border: 1px solid black;
+            border-radius: 0.5rem;
+            box-shadow: 5px 5px 5px gray;
+            padding: 1rem;
+            font-size: x-large;
+            text-align: center;
+            margin: 1rem 0px;
+            min-height: 2em;
+        }
+        #explanation {
+            padding: 1rem;
+            text-align: center;
+        }
+        #options {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        button {
+            padding: 0.5rem;
+            font-size: medium;
+            border-radius: 5px;
+        }
+        .correct {
+            background-color: rgb(75, 238, 75);
+        }
+        .incorrect {
+            background-color: rgb(237, 41, 41);
+        }
+    </style>
+  </head>
+  <body>
+    <header>
+    <h1>Quiz.js</h1>
+    <p>Do you know JS? Find out!</p>
+    <div id="score">
+        Score: <span id="correct">0</span> / <span id="completed">0</span>
+    </div>    
+</header>
+
+    <main>
+    <div id="statement">
+        
+    </div>
+
+    <div id="options">
+        <button name="true" value="true">true</button>
+        <button name="false" value="false">false</button>
+    </div>
+    <button id="next-question" name="next-question" disabled="disabled">Next Question</button>
+
+    <div id="explanation">
+
+    </div>
+
+    </main>
+
+  
+
+  <script type="text/javascript">
+
+const facts = [
+        {
+            "statement": "The Earth is the third planet from the sun?",
+            "answer": "true",
+            "explanation": "The Earth is the third planet from the sun. This is based on the standard planetary order of the solar system, with the inner planets (Mercury, Venus, Earth, and Mars) followed by the outer planets (Jupiter, Saturn, Uranus, and Neptune)."
+        },
+        {
+            "statement": "The capital of France is Berlin ?",
+            "answer": "false",
+            "explanation": "The capital of France is Paris. Berlin is the capital of Germany."
+        },
+        {
+            "statement": "The Great Wall of China is visible from space with the naked eye ?",
+            "answer": "false",
+            "explanation": "The Great Wall of China is not visible from space with the naked eye. While it is the longest wall in the world, it is not wide enough to be seen from space without the aid of magnification."
+        },
+        {
+            "statement": "Water boils at a lower temperature at higher altitudes ?",
+            "answer": "true",
+            "explanation": "Water boils at a lower temperature at higher altitudes. This is because the atmospheric pressure is lower at higher elevations, so it takes less heat to boil water."
+        },
+        {
+            "statement": "The largest desert in the world is the Antarctic Desert?",
+            "answer": "false",
+            "explanation": "The largest desert in the world is the Antarctic Desert, it's the coldest desert in the world."
+        },
+        {
+            "statement": "The chemical symbol for gold is 'Au' ?",
+            "answer": "true",
+            "explanation": "The chemical symbol for gold is 'Au' which comes from the Latin word for gold, 'aurum'."
+        },
+        {
+            "statement": "The heart of a blue whale is the size of a car ?",
+            "answer": "true",
+            "explanation": "The heart of a blue whale is the size of a car and can weigh as much as a small car."
+        },
+        {
+            "statement": "The human body has more bones in childhood than in adulthood?",
+            "answer": "true",
+            "explanation": "The human body has more bones in childhood (around 300) than in adulthood (206) as some bones fuse together during growth."
+        },
+        {
+            "statement": "The Earth's atmosphere is mostly composed of Oxygen ?",
+            "answer": "false",
+            "explanation": "The Earth's atmosphere is mostly composed of Nitrogen (78%) and Oxygen (21%) not Oxygen alone."
+        },
+        {
+            "statement": "The Earth's rotation axis is perpendicular to the plane of its orbit around the sun. ?",
+            "answer": "false",
+            "explanation": "The Earth's rotation axis is tilted at an angle of about 23.5 degrees with respect to the plane of its orbit around the sun, this is the reason for the seasons."
+        },
+        {
+            "statement": " The most abundant gas in the Earth's atmosphere is Nitrogen?",
+            "answer": "true",
+            "explanation": "Nitrogen makes up 78% of the Earth's atmosphere, making it the most abundant gas."
+        },
+       
+        {
+            "statement": "The longest river in the world is the Nile ?",
+            "answer": "true",
+            "explanation": "The Nile river is the longest river in the world, stretching for over 4,000 miles."
+        }
+    ];
+
+    function hide(element) {
+        element.classList.add("hidden");
+    }
+
+    function show(element) {
+        element.classList.remove("hidden");
+    }
+
+    function disable(button) {
+        button.setAttribute("disabled", "");
+    } 
+
+    function enable(button) {
+        button.removeAttribute("disabled");
+    }
+   
+    let correct = 0;
+    let completed = 0;
+    
+    let fact;
+
+
+    const explanation =  document.getElementById("explanation");
+    const nextButton = document.getElementById("next-question");
+    const optionButtons = document.getElementById("options").children;
+
+    function getNextFact() {
+        fact = facts.shift(); // get the first fact in our array (shortening the array)
+
+        // set the question text to the current fact's statement
+        document.getElementById("statement").textContent = fact.statement;
+
+        // hide any previous explanation
+        hide(explanation);
+
+        for (let option of optionButtons) {
+            // clear any previous classes
+            option.classList.remove("correct");
+            option.classList.remove("incorrect");
+            // make sure buttons are enabled
+            enable(option);
+        }
+
+        // disable next-question button
+        disable(nextButton);
+        
+    }
+
+    nextButton.addEventListener("click", getNextFact);
+
+    for (let option of optionButtons) {
+        option.addEventListener("click", e => {
+            // When this option is clicked...
+
+            // disable all the option buttons
+            for (let button of optionButtons) {
+                disable(button); 
+            }
+
+            // enable the 'next question' button, if we still have facts left
+            if (facts.length > 0) {
+                enable(nextButton);
+            } else {
+                nextButton.textContent = "No more questions!"
+            }
+
+            const guess = e.target.value;
+            if (guess === fact.answer) {
+                // correct answer!
+                e.target.classList.add("correct");
+                correct += 1;
+            } else {
+                // wrong answer!
+                e.target.classList.add("incorrect");
+            }
+
+            // display the explanation
+            explanation.textContent = fact.explanation;
+            show(explanation);
+            
+            // update the score
+            completed += 1;
+            document.getElementById("correct").textContent = correct;
+            document.getElementById("completed").textContent = completed;
+
+        })
+    }
+
+    getNextFact();
+
+  </script>
+
+</body></html>
